@@ -12,10 +12,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//старая функция
+//Route::get('/', function () { return view('welcome'); })->name('home');
+//новая функция
+Route::get('/', 'PostController@index')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+//для поста польз. части
+Route::get('/article', 'PostController@show')->name('posts.single');
 
 
 
