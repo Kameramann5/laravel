@@ -16,7 +16,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/admin/editor/summernote-bs4.min.css') }}">
+
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
@@ -279,11 +279,19 @@
                    </div>
                @endif
 
+                   @if (session ()->has('error'))
+                       <div class="alert alert-danger">
+                           {{session('error')}}
+                       </div>
+                   @endif
+
                    @if (session ()->has('success'))
                        <div class="alert alert-success">
                          {{session('success')}}
                        </div>
                    @endif
+
+
            </div>
 
        </div>
@@ -331,12 +339,10 @@
 });
     $('.select2').select2();
 </script>
-<script src="{{asset('assets/admin/editor/summernote-bs4.js.map')}}"></script>
-<script src="{{asset('assets/admin/editor/summernote-bs4.min.js')}}"></script>
-<script src="{{asset('assets/admin/editor/lang/summernote-ru-RU.min.js')}}"></script>
+
 <script>
-    $(function () {
-       $("#description").summernote();
+    $(document).ready(function () {
+        bsCustomFileInput.init();
     });
 </script>
 

@@ -75,8 +75,12 @@ class CategoryController extends Controller
        // dd(__METHOD__);
      //   $category=Category::find($id);
      //   $category=delete();
-Category::destroy ($id);
-
+//Category::destroy ($id);
+        $category=Category::find($id);
+if($category->posts->count()) {
+    return redirect()->route ('categories.index')->with('error','Ошибка, у категории есть записи, удалите, либо перенести их в другую категорию');
+}
+        $category->delete();
         return redirect ()->route ('categories.index')->with ('success','Удалено');
 
 

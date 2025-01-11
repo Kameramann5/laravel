@@ -91,18 +91,17 @@ $data = $request->all();
 
 
      //   $data['thumbnail']=Post::uploadImage($request,$post->thumbnail); error
+        //или второе рещение
+        //if($file =Post::uploadImage($request,$post->thumbnail)) {
+        //$data['thumbnail']=false;
+        //}
         if($request->hasFile('thumbnail')) {
             Storage::delete($post->thumbnail);
             $folder = date('Y-m-d');
             $data['thumbnail'] = $request->file('thumbnail')->store("images/{$folder}");
         }
-
-
-
-$post->update($data);
+        $post->update($data);
         $post->tags()->sync($request->tags);
-
-
         return redirect ()->route ('posts.index')->with ('success','Изменения сохранены');
     }
 
