@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PostController@index')->name('home');
 
 //для поста польз. части
-Route::get('/article', 'PostController@show')->name('posts.single');
-
+Route::get('/article/{slug}', 'PostController@show')->name('posts.single');
+Route::get('/category/{slug}', 'CategoryController@show')->name('categories.single');
 
 
 
