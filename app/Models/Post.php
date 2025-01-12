@@ -44,6 +44,7 @@ return null;
 
 public function getImage() {
         if(!$this->thumbnail) {
+            //лежит в папке /public
             return asset('no-image.png');
         }
         return asset("uploads/{$this->thumbnail}");
