@@ -163,7 +163,12 @@
                     <img src="{{ asset('assets/admin/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">  @if (Auth::check())
+                             {{ Auth::user()->name }}
+                           ({{ Auth::user()->email }})
+                        @else
+                            Гость
+                        @endif</a>
                 </div>
             </div>
             <!-- Sidebar Menu -->
