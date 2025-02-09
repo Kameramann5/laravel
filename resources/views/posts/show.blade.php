@@ -38,7 +38,13 @@
 
 
         </div><!-- end content -->
+        <br>
+        <h3>Цитата:</h3>
+        <div class="blog-content">
+            {!! $post->description !!}
 
+
+        </div><!-- end content -->
         <div class="blog-title-area">
             @if($post->tags->count())
             <div class="tag-cloud-single">

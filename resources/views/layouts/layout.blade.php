@@ -33,6 +33,7 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
 
+
 </head>
 <body>
 
@@ -183,7 +184,82 @@
 <!-- end wrapper -->
 
 <script src="{{ asset('assets/front/js/front.js') }}"></script>
+<script>
+    $.ajax({
+        url:"/api/articles",
+        type:"GET",
+        dataType:"json",
+        success(data) {
+for(let index in data) {
+    $('.rest-api-articles').append(
+        `
+            <div class="blog-box wow fadeIn">
+                    <div class="post-media">
+                        <a href="article/${data[index].slug}" title="">
+                            <img src="/uploads/${data[index].thumbnail}" alt="" class="img-fluid">
+                            <div class="hovereffect">
+                                <span></span>
+                            </div>
+                            <!-- end hover -->
+                        </a>
+                    </div>
+                    <!-- end media -->
+                    <div class="blog-meta big-meta text-center">
+                        <div class="post-sharing">
+                            <ul class="list-inline">
+                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span
+                                            class="down-mobile">Share on Facebook</span></a></li>
+                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span
+                                            class="down-mobile">Tweet on Twitter</span></a></li>
+                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a>
+                                </li>
+                            </ul>
+                        </div><!-- end post-sharing -->
+                        <h4><a href="article/${data[index].slug}" title="">
+                           ${data[index].title}
+        </a></h4>
 
+        <div id="simple-article_${data[index].id}">
+  ${data[index].content.slice(0,20)}...
+        </div>
+<div class="full-article d-none"></div>
+
+<br>
+<button class="btn" id="btn_${data[index].id}" onclick="fullArticle(${data[index].id})">Показать полностью</button>
+<br><br>
+        <small><a href="" title=""></a></small>
+                        <small>  ${data[index].created_at}</small>
+                        <small><i class="fa fa-eye"></i>${data[index].views}</small>
+                    </div><!-- end meta -->
+                </div><!-- end blog-box -->
+                <hr class="invis">
+        `
+
+    )
+}
+        }
+
+    })
+
+
+
+
+    function fullArticle(id) {
+        $.ajax({
+            url:"/api/articles/"+id,
+            type:"GET",
+            dataType:"json",
+            success(data) {
+
+                $('#btn_'+id).remove();
+                $('#simple-article_'+id).remove();
+                $('.full-article').text(data.content);
+                $('.full-article').removeClass('d-none');
+            }
+
+        })
+    }
+</script>
 
 </body>
 </html>

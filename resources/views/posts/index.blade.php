@@ -48,7 +48,6 @@
     <div class="page-wrapper">
         <div class="blog-custom-build">
             @foreach($posts as $post)
-
                 <div class="blog-box wow fadeIn">
                     <div class="post-media">
                         <a href="{{route('posts.single',['slug'=>$post->slug])}}" title="">
@@ -76,7 +75,6 @@
                             </a></h4>
                         <?php //для рендера html тегов ?>
                         <div>
-
                     {!! $post->description !!}
                         </div>
                         <small><a href="{{route('categories.single',['slug'=>$post->category->slug])}}" title="">{{$post->category->title}}</a></small>
@@ -85,23 +83,35 @@
                         <small><i class="fa fa-eye"></i> {{ $post->views}}</small>
                     </div><!-- end meta -->
                 </div><!-- end blog-box -->
-
                 <hr class="invis">
             @endforeach
+        </div>
+    </div>
+    <hr class="invis">
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation">
+                {{ $posts->links()  }}
+            </nav>
+        </div><!-- end col -->
+    </div><!-- end row -->
+
+
+
+
+
+
+    <h2>  <b>  Вывести через ajax статьи</b>  </h2>
+    <div class="page-wrapper">
+        <div class="blog-custom-build rest-api-articles">
+
 
 
         </div>
     </div>
 
-    <hr class="invis">
-
-    <div class="row">
-        <div class="col-md-12">
-            <nav aria-label="Page navigation">
-                {{ $posts->links()  }}
-
-            </nav>
-        </div><!-- end col -->
-    </div><!-- end row -->
 
 @endsection
+
+
+
