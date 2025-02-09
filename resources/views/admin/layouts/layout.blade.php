@@ -350,6 +350,92 @@
         bsCustomFileInput.init();
     });
 </script>
+<script>
+    //ajax список статей
+    $.ajax({
+        url:"/api/articles",
+        type:"GET",
+        dataType:"json",
+        success(data) {
+            for(let index in data) {
+                $('.rest-api-articles').append(
+                    `
+                                     <tr>
+                                    <td>${data[index].id}</td>
+                                    <td>${data[index].title}</td>
+                                     <td>${data[index].category_id}</td>
+                                    <td>${data[index].created_at}</td>
+                                     </tr>
+`
+                )
+            }
+        }
+
+    })
+
+
+    $('#title-error').hide();
+    $('#content-error').hide();
+    $('#description-error').hide();
+    $('#category_id-error').hide();
+    //ajax добавление данных
+    function storeArticle() {
+        const title=$('#title');
+        const content=$('#content');
+        const description=$('#description');
+        const category_id=$('#category_id');
+        $('#title-error').hide();
+        $('#content-error').hide();
+        $('#description-error').hide();
+        $('#category_id-error').hide();
+
+        $.ajax({
+            url:"/api/articles/",
+            type:"POST",
+            dataType:"json",
+            data: {
+                title:title.val(),
+                content:content.val(),
+                description:description.val(),
+                category_id:category_id.val(),
+            },
+            error(err) {
+              const data = err.responseJSON;
+              for (let key in err.responseJSON.errors) {
+                  let error_text = err.responseJSON.errors[key][0];
+                  $(`#${key}-error`).show().text(error_text);
+              }
+            },
+            success(data) {
+                title.val('');
+                content.val('');
+                description.val('');
+                category_id.val('');
+
+                $('.rest-api-articles').append(
+                    `
+                                     <tr>
+                                    <td>${data.article.id}</td>
+                                    <td>${data.article.title}</td>
+                                     <td>${data.article.category_id}</td>
+                                    <td>${data.article.created_at}</td>
+                                     </tr>
+`
+                )
+
+                $('#post-add-success').append(
+                    `Успешно добавлено!
+`
+                )
+            }
+
+        })
+    }
+</script>
+
+
+
+
 
 </body>
 </html>

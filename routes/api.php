@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ArticlesController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,8 +26,8 @@ Route::get('/articles',[ArticlesController::class,"showArticles"]);
 //получение одного поста по id
 Route::get('/articles/{id}',[ArticlesController::class,"showArticle"]);
 
-
-
+//добавление нового поста
+Route::post('/articles',[ArticlesController::class,"storeArticle"]);
 
 
 

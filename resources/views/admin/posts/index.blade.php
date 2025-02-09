@@ -30,6 +30,47 @@
                                   </div>
                 <div class="card-body">
                     <a href="{{ route ('posts.create')  }}" class="btn btn-primary mb-3">Добавить статью</a>
+                    <br>
+                    <b>ajax добавить статью</b>
+                    <form action="">
+                        <input type="text" name="title" id="title" placeholder="Название" required>
+                        <input type="text" name="description" id="description" placeholder="Цитата" required>
+                        <input type="text" name="content" id="content" placeholder="Контент" required>
+                        <input type="text" name="category_id" id="category_id" placeholder="id Категории" required>
+                        <input type="hidden" name="created_at" id="created_at" value="<?php $currentDateTime = date('Y-m-d H:i:s');
+// Выводим дату и время
+echo $currentDateTime; ?>" required>
+                            <button type="button"  onclick="storeArticle()">Добавить</button>
+                    </form>
+                    <div id="title-error"></div>
+
+                    <div id="description-error"></div>
+
+                    <div id="content-error"></div>
+
+                    <div id="category_id-error"></div>
+                    <div id="post-add-success"></div>
+                    <br>
+                    <b>ajax список статей</b>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Наименование</th>
+                                <th>Категория</th>
+
+                                <th >Дата</th>
+
+                            </tr>
+                            </thead>
+                            <tbody class="rest-api-articles">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <b>php статьи</b>
+
                     @if (count($posts))
 
                     <div class="table-responsive">
