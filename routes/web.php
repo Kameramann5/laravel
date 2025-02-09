@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,9 @@ Route::get('/category/{slug}', 'CategoryController@show')->name('categories.sing
 Route::get('/tag/{slug}', 'TagController@show')->name('tags.single');
 Route::get('/search', 'SearchController@index')->name('search');
 
-
+//подписка
+Route::get('/email-form', [EmailController::class, 'showForm']);
+Route::post('/email-form', [EmailController::class, 'submitForm']);
 
 
 

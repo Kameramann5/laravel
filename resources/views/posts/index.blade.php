@@ -15,13 +15,28 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="newsletter-widget text-center align-self-center">
-                        <h3>Subscribe Today!</h3>
-                        <p>Subscribe to our weekly Newsletter and receive updates via email.</p>
-                        <form class="form-inline" method="post">
-                            <input type="text" name="email" placeholder="Add your email here.." required
-                                   class="form-control"/>
-                            <input type="submit" value="Subscribe" class="btn btn-default btn-block"/>
+                        <h3>Подпишись!</h3>
+
+                        @if(session('success'))
+                            <div style="color: green;">{{ session('success') }}</div>
+                        @endif
+
+                        <form action="/email-form" method="POST" class="form-inline">
+                            @csrf
+
+                            <input type="email" name="email" class="form-control" placeholder="Введите email" required>
+                            <input type="submit" value="Подписаться" class="btn btn-default btn-block"/>
                         </form>
+                        @if($errors->any())
+                            <div style="color: red;">
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                     </div><!-- end newsletter -->
                 </div>
             </div>
