@@ -163,7 +163,23 @@ public function patchArticle($id,Request $request) {
 
 }
 
+public function deleteArticle($id) {
+    $article = Post::find($id);
+    if(!$article) {
+        return response()->json([
+            "status"=>false,
+            "message"=>"Статья не найдена"
 
+        ])->setStatusCode (404,"Статья не найдена");
+    }
+    $article->delete();
+    return response()->json([
+        "status"=>true,
+        "message"=>"Статья удалена"
+
+    ])->setStatusCode (200,"Статья удалена");
+
+}
 
 
 }

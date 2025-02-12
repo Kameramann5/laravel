@@ -165,6 +165,32 @@ echo $currentDateTime; ?>" required>
                 <!-- /.modal-dialog -->
             </div>
             <!-- /.modal -->
+            <div class="modal fade" id="modal-delete">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-delete">Удалить статью? </h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="id-modal-delete-input"  value="">
+                                <span id="delete-title"></span>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                                <button type="button" class="btn btn-danger" onclick="deleteArticle()">Удалить</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
         </section>
         <!-- /.content -->
 

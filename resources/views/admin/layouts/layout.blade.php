@@ -371,6 +371,9 @@
 <button type="button" class="btn btn-default" onclick="setFieldsForModalUpdate('${data[index].id}','${data[index].title}','${data[index].category_id}','${data[index].content}','${data[index].description}',)" data-toggle="modal"  data-target="#modal-edit">
                 <i class="fas fa-pencil-alt"></i>
                 </button>
+<button type="button" class="btn btn-danger btn-sm" onclick="setFieldsForModalDelete('${data[index].id}','${data[index].title}')" data-toggle="modal"  data-target="#modal-delete">
+              <i class="fas fa-trash-alt"></i>
+                </button>
 </td>
                                      </tr>
 `
@@ -476,6 +479,14 @@ function setFieldsForModalUpdate(id,title,category_id,content,description)  {
                                     <td>${data.article.title}</td>
                                      <td>${data.article.category_id}</td>
                                     <td>${data.article.created_at}</td>
+ <td>
+<button type="button" class="btn btn-default" onclick="setFieldsForModalUpdate('${data.article.id}','${data.article.title}','${data.article.category_id}','${data.article.content}','${data.article.description}',)" data-toggle="modal"  data-target="#modal-edit">
+                <i class="fas fa-pencil-alt"></i>
+                </button>
+<button type="button" class="btn btn-danger btn-sm" onclick="setFieldsForModalDelete('${data.article.id}','${data.article.title}')" data-toggle="modal"  data-target="#modal-delete">
+              <i class="fas fa-trash-alt"></i>
+                </button>
+</td>
                                      </tr>
 `
                 )
@@ -488,11 +499,29 @@ function setFieldsForModalUpdate(id,title,category_id,content,description)  {
 
         })
     }
+    //удалить статью
+    function setFieldsForModalDelete(id,title) {
+        $('#id-modal-delete-input').val(id);
+        $('#delete-title').text(title);
+    }
+    function deleteArticle() {
+        const id = $('#id-modal-delete-input').val();
+        $.ajax({
+            url:"/api/articles/"+id,
+            type:"DELETE",
+            dataType:"json",
+            success(data) {
+                if(data.status) {
+                    $('#modal-delete').modal('hide');
+                }
+                //обновить список статей
+                loadArticles();
+
+            }
+
+        })
+    }
+
 </script>
-
-
-
-
-
 </body>
 </html>

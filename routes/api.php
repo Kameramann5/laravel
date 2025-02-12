@@ -36,6 +36,6 @@ Route::post('/articles',[ArticlesController::class,"storeArticle"]);
 Route::put('/articles/{id}',[ArticlesController::class,"putArticle"]);
 //изменить статью с помощью метода PATCH, указать только нужные поля
 Route::patch('/articles/{id}',[ArticlesController::class,"patchArticle"]);
-
-
+//удаление статьи
+Route::delete('/articles/{id}',[ArticlesController::class,"deleteArticle"]);
 
