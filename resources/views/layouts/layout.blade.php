@@ -1,68 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
 <title>@yield('title')</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
-
-
 <link rel="shortcut icon" href="{{ asset('assets/front/images/favicon.ico') }}" type="image/x-icon" />
 <link rel="apple-touch-icon" href="{{ asset('assets/front/images/apple-touch-icon.png') }}">
-
-
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
-
-
-
 <link rel="stylesheet" href="{{ asset('assets/front/css/front.css') }}">
-
-
-
-
-
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-
-
-
 </head>
 <body>
-
 <div id="wrapper">
-
     @include('layouts.navbar')
-
-
     @yield('header')
-
-
-
     <section class="section lb @if (!Request::is('/')) m3rem @endif ">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-
-
-@yield('content')
-
-                </div><!-- end col -->
-
+                    @yield('content')
+                </div>
+                <!-- end col -->
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-@include('layouts.sidebar')
-                </div><!-- end col -->
-            </div><!-- end row -->
-        </div><!-- end container -->
+                    @include('layouts.sidebar')
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
+        </div>
+        <!-- end container -->
     </section>
-
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -78,7 +49,6 @@
                                         <small>12 Jan, 2016</small>
                                     </div>
                                 </a>
-
                                 <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="/assets/front/upload/small_05.jpg" alt="" class="img-fluid float-left">
@@ -86,7 +56,6 @@
                                         <small>11 Jan, 2016</small>
                                     </div>
                                 </a>
-
                                 <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="/assets/front/upload/small_06.jpg" alt="" class="img-fluid float-left">
@@ -95,10 +64,12 @@
                                     </div>
                                 </a>
                             </div>
-                        </div><!-- end blog-list -->
-                    </div><!-- end widget -->
-                </div><!-- end col -->
-
+                        </div>
+                        <!-- end blog-list -->
+                    </div>
+                    <!-- end widget -->
+                </div>
+                <!-- end col -->
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="widget">
                         <h2 class="widget-title">Popular Posts</h2>
@@ -109,47 +80,47 @@
                                         <img src="/assets/front/upload/small_01.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">Banana-chip chocolate cake recipe with customs</h5>
                                         <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    </span>
                                     </div>
                                 </a>
-
                                 <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 justify-content-between">
                                         <img src="/assets/front/upload/small_02.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">10 practical ways to choose organic vegetables</h5>
                                         <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    </span>
                                     </div>
                                 </a>
-
                                 <a href="marketing-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="w-100 last-item justify-content-between">
                                         <img src="/assets/front/upload/small_03.jpg" alt="" class="img-fluid float-left">
                                         <h5 class="mb-1">We are making homemade ravioli, nice and good</h5>
                                         <span class="rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    </span>
                                     </div>
                                 </a>
                             </div>
-                        </div><!-- end blog-list -->
-                    </div><!-- end widget -->
-                </div><!-- end col -->
-
+                        </div>
+                        <!-- end blog-list -->
+                    </div>
+                    <!-- end widget -->
+                </div>
+                <!-- end col -->
                 <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <div class="widget">
                         <h2 class="widget-title">Popular Categories</h2>
@@ -163,11 +134,14 @@
                                 <li><a href="#">Entertaintment <span>(11)</span></a></li>
                                 <li><a href="#">Video Tuts <span>(87)</span></a></li>
                             </ul>
-                        </div><!-- end link-widget -->
-                    </div><!-- end widget -->
-                </div><!-- end col -->
-            </div><!-- end row -->
-
+                        </div>
+                        <!-- end link-widget -->
+                    </div>
+                    <!-- end widget -->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row -->
             <div class="row">
                 <div class="col-md-12 text-center">
                     <br>
@@ -175,14 +149,13 @@
                     <div class="copyright">&copy; Markedia. Design: <a href="http://html.design">HTML Design</a>.</div>
                 </div>
             </div>
-        </div><!-- end container -->
-    </footer><!-- end footer -->
-
+        </div>
+        <!-- end container -->
+    </footer>
+    <!-- end footer -->
     <div class="dmtop">Scroll to Top</div>
-
 </div>
 <!-- end wrapper -->
-
 <script src="{{ asset('assets/front/js/front.js') }}"></script>
 <script>
     $.ajax({
@@ -190,60 +163,54 @@
         type:"GET",
         dataType:"json",
         success(data) {
-for(let index in data) {
-    $('.rest-api-articles').append(
-        `
-            <div class="blog-box wow fadeIn">
-                    <div class="post-media">
-                        <a href="article/${data[index].slug}" title="">
-                            <img src="/uploads/${data[index].thumbnail}" alt="" class="img-fluid">
-                            <div class="hovereffect">
-                                <span></span>
-                            </div>
-                            <!-- end hover -->
-                        </a>
-                    </div>
-                    <!-- end media -->
-                    <div class="blog-meta big-meta text-center">
-                        <div class="post-sharing">
-                            <ul class="list-inline">
-                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span
-                                            class="down-mobile">Share on Facebook</span></a></li>
-                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span
-                                            class="down-mobile">Tweet on Twitter</span></a></li>
-                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a>
-                                </li>
-                            </ul>
-                        </div><!-- end post-sharing -->
-                        <h4><a href="article/${data[index].slug}" title="">
-                           ${data[index].title}
-        </a></h4>
-
-        <div id="simple-article_${data[index].id}">
-  ${data[index].content.slice(0,20)}...
-        </div>
-<div class="full-article d-none"></div>
-
-<br>
-<button class="btn" id="btn_${data[index].id}" onclick="fullArticle(${data[index].id})">Показать полностью</button>
-<br><br>
-        <small><a href="" title=""></a></small>
-                        <small>  ${data[index].created_at}</small>
-                        <small><i class="fa fa-eye"></i>${data[index].views}</small>
-                    </div><!-- end meta -->
-                </div><!-- end blog-box -->
-                <hr class="invis">
-        `
-
-    )
-}
+            for(let index in data) {
+                $('.rest-api-articles').append(
+                    `
+                 <div class="blog-box wow fadeIn">
+                         <div class="post-media">
+                             <a href="article/${data[index].slug}" title="">
+                                 <img src="/uploads/${data[index].thumbnail}" alt="" class="img-fluid">
+                                 <div class="hovereffect">
+                                     <span></span>
+                                 </div>
+                                 <!-- end hover -->
+                             </a>
+                         </div>
+                         <!-- end media -->
+                         <div class="blog-meta big-meta text-center">
+                             <div class="post-sharing">
+                                 <ul class="list-inline">
+                                     <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span
+                                                 class="down-mobile">Share on Facebook</span></a></li>
+                                     <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span
+                                                 class="down-mobile">Tweet on Twitter</span></a></li>
+                                     <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a>
+                                     </li>
+                                 </ul>
+                             </div><!-- end post-sharing -->
+                             <h4><a href="article/${data[index].slug}" title="">
+                                ${data[index].title}
+             </a></h4>
+             <div id="simple-article_${data[index].id}">
+         ${data[index].content.slice(0,20)}...
+             </div>
+         <div class="full-article d-none"></div>
+         <br>
+         <button class="btn" id="btn_${data[index].id}" onclick="fullArticle(${data[index].id})">Показать полностью</button>
+         <br><br>
+             <small><a href="" title=""></a></small>
+                             <small>  ${data[index].created_at}</small>
+                             <small><i class="fa fa-eye"></i>${data[index].views}</small>
+                         </div><!-- end meta -->
+                     </div><!-- end blog-box -->
+                     <hr class="invis">
+             `
+                )
+            }
         }
-
     })
 
-
-
-//вывести полное описание статьи
+    //вывести полное описание статьи
     function fullArticle(id) {
         $.ajax({
             url:"/api/articles/"+id,
@@ -260,6 +227,5 @@ for(let index in data) {
         })
     }
 </script>
-
 </body>
 </html>
