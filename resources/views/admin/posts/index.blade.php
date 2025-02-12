@@ -61,7 +61,7 @@ echo $currentDateTime; ?>" required>
                                 <th>Категория</th>
 
                                 <th >Дата</th>
-
+                                <th >Actions</th>
                             </tr>
                             </thead>
                             <tbody class="rest-api-articles">
@@ -122,7 +122,49 @@ echo $currentDateTime; ?>" required>
                 <!-- /.card-footer-->
             </div>
             <!-- /.card -->
+            <div class="modal fade" id="modal-edit">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-title"></h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
+                            <div class="modal-body">
+                                <input type="hidden" class="form-control" id="id-modal-input"  value="">
+
+                                <div class="form-group">
+                                    <label for="title-modal-input">Название</label>
+                                    <input type="text" class="form-control" id="title-modal-input" name="title" value="" placeholder="Название">
+                                </div>
+                                <div class="form-group">
+                                    <label for="category_id-modal-input">id Категории</label>
+                                    <input type="text" class="form-control" id="category_id-modal-input"  value="" placeholder="Название">
+                                </div>
+                                <div class="form-group">
+                                    <label for="content-modal-input">Контент</label>
+                                    <input type="text" class="form-control" id="content-modal-input" name="content" value="" placeholder="Контент">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description-modal-input">Цитата</label>
+                                    <input type="text" class="form-control" id="description-modal-input" name="description" value="" placeholder="Цитата">
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+
+                                <button type="button" class="btn btn-primary" onclick="updateArticle()">Сохранить</button>
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
         </section>
         <!-- /.content -->
 

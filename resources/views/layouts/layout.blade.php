@@ -243,7 +243,7 @@ for(let index in data) {
 
 
 
-
+//вывести полное описание статьи
     function fullArticle(id) {
         $.ajax({
             url:"/api/articles/"+id,

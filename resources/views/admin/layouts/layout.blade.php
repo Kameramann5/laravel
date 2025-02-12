@@ -351,29 +351,86 @@
     });
 </script>
 <script>
-    //ajax список статей
-    $.ajax({
-        url:"/api/articles",
-        type:"GET",
-        dataType:"json",
-        success(data) {
-            for(let index in data) {
-                $('.rest-api-articles').append(
-                    `
+    function loadArticles() {
+        //ajax список статей
+        $('.rest-api-articles').html('');
+        $.ajax({
+            url:"/api/articles",
+            type:"GET",
+            dataType:"json",
+            success(data) {
+                for(let index in data) {
+                    $('.rest-api-articles').append(
+                        `
                                      <tr>
                                     <td>${data[index].id}</td>
                                     <td>${data[index].title}</td>
                                      <td>${data[index].category_id}</td>
                                     <td>${data[index].created_at}</td>
+ <td>
+<button type="button" class="btn btn-default" onclick="setFieldsForModalUpdate('${data[index].id}','${data[index].title}','${data[index].category_id}','${data[index].content}','${data[index].description}',)" data-toggle="modal"  data-target="#modal-edit">
+                <i class="fas fa-pencil-alt"></i>
+                </button>
+</td>
                                      </tr>
 `
-                )
+                    )
+                }
             }
-        }
+        })
+    }
+    loadArticles();
 
-    })
 
 
+    //вывести данные в форму редактирования статьи
+function setFieldsForModalUpdate(id,title,category_id,content,description)  {
+    $('#id-modal-input').val(id);
+    $('#modal-title').html("Редактировать "+title);
+    $('#title-modal-input').val(title);
+    $('#category_id-modal-input').val(category_id);
+    $('#content-modal-input').val(content);
+    $('#description-modal-input').val(description);
+}
+//отправить данные из модального окна редактирования статьи
+    function updateArticle() {
+    const title = $('#title-modal-input').val();
+    const category_id = $('#category_id-modal-input').val(),
+        content = $('#content-modal-input').val(),
+        description = $('#description-modal-input').val(),
+        id = $('#id-modal-input').val();
+            $.ajax({
+                url:"/api/articles/"+id,
+                type:"PUT",
+                dataType:"json",
+                data: {
+                    title,
+                    content,
+                    category_id,
+                    description,
+                    id
+                },
+                success(data) {
+                    if(data.status) {
+                        $('#modal-edit').modal('hide');
+                    }
+                    //обновить список статей
+                    loadArticles();
+
+                }
+
+            })
+
+
+
+
+    }
+
+
+
+
+
+//скрыть ошибки
     $('#title-error').hide();
     $('#content-error').hide();
     $('#description-error').hide();
